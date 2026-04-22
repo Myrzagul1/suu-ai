@@ -60,8 +60,8 @@
       <p class="section-title">1-кадам — Талаа маалыматы</p>
       <div class="field-group"><label>🌾 Өсүмдүк</label><select id="plant" onchange="recalc()"><option value="буудай">Буудай</option><option value="жүгөрү">Жүгөрү</option><option value="картошка">Картошка</option><option value="жашылча">Кулпунай</option><option value="алма">Алма дарагы</option><option value="бедене">Беде</option></select></div>
       <div class="field-group"><label>🪨 Топурак</label><select id="soil" onchange="recalc()"><option value="саздак">Саздак (кум)</option><option value="орто">Орто топура</option><option value="балчык">Балчык</option></select></div>
-      <div class="field-group"><label>🌡️ Температура</label><div class="slider-wrap"><input type="range" id="temp" min="5" max="45" value="28" oninput="document.getElementById('tempVal').textContent=this.value+'°C'; recalc()"><div class="slider-val" id="tempVal">28°C</div></div></div>
-      <div class="field-group"><label>💧 Нымдуулук (%)</label><div class="slider-wrap"><input type="range" id="hum" min="10" max="95" value="45" oninput="document.getElementById('humVal').textContent=this.value+'%'; recalc()"><div class="slider-val" id="humVal">45%</div></div></div>
+      <div class="field-group"><label>🌡️ Абанын Температурасы</label><div class="slider-wrap"><input type="range" id="temp" min="5" max="45" value="28" oninput="document.getElementById('tempVal').textContent=this.value+'°C'; recalc()"><div class="slider-val" id="tempVal">28°C</div></div></div>
+      <div class="field-group"><label>💧 Топурактын Нымдуулугу (%)</label><div class="slider-wrap"><input type="range" id="hum" min="10" max="95" value="45" oninput="document.getElementById('humVal').textContent=this.value+'%'; recalc()"><div class="slider-val" id="humVal">45%</div></div></div>
       <div class="field-group" style="margin-bottom:0;"><label>📐 Аянт (гектар)</label><input type="number" id="area" value="2" min="0.1" step="0.1" oninput="recalc()"></div>
     </div>
     <div>
