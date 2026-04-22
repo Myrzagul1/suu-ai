@@ -268,6 +268,13 @@
             <span style="font-size:11px; color:var(--text-muted)">45°C</span>
           </div>
         </div>
+        </div>
+      <div class="field-group">
+        <label>💧 Топурактын Нымдуулугу (%)</label>
+        <div class="slider-wrap">
+          <input type="range" id="hum" min="10" max="95" value="45" oninput="document.getElementById('humVal').textContent=this.value+'%'; recalc()">
+          <div class="slider-val" id="humVal">45%</div>
+        </div>
       </div>
       <div class="field-group">
         <label>📐 Аянт (гектар)</label>
