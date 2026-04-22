@@ -6,310 +6,217 @@
 <title>AiSuu — Акылдуу Суугаруу</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root { 
-    --green-dark: #1a3a2a; 
-    --green-mid: #2d6a4f; 
-    --green-light:#52b788; 
-    --green-pale: #d8f3dc; 
-    --cream: #faf7f0; 
-    --clay: #c9a96e; 
-    --text: #1a2420; 
-    --muted: #6b7c74; 
-    --border: #d0e8d8; 
-    --white: #ffffff; 
+  :root {
+    --brand-blue:  #1e4d8c;
+    --brand-green: #2d6a4f;
+    --brand-light: #52b788;
+    --bg-main:     #f0f4f8;
+    --sidebar-bg:  #ffffff;
+    --text-dark:   #1a2a3a;
+    --text-muted:  #5a6a7a;
+    --border-clr:  #d1dce5;
+    --white:       #ffffff;
   }
-  
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  body { 
-    font-family: 'DM Sans', sans-serif; 
-    background: var(--cream); 
-    color: var(--text); 
-    min-height: 100vh; 
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-dark);
+    min-height: 100vh;
   }
 
-  header { 
-    background: var(--white); /* Логотип жакшы көрүнүшү үчүн ак фон */
-    padding: 1rem 2rem; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  header {
+    background: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-clr);
+    box-shadow: 0 2px 12px rgba(30, 77, 140, 0.08);
   }
 
+  /* SVG Логотип стилдери */
   .logo-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
+    text-decoration: none;
+    gap: 12px;
   }
 
-  .main-logo {
-    height: 45px; /* Логотиптин бийиктиги */
+  .logo-icon {
+    height: 55px; /* Логотиптин өлчөмү чоңойтулду */
     width: auto;
   }
 
-  .badge-live { 
-    display: flex; 
-    align-items: center; 
-    gap: 6px; 
-    font-size: 12px; 
-    color: var(--green-light); 
-    background: rgba(82,183,136,0.12); 
-    padding: 4px 12px; 
-    border-radius: 20px; 
-    border: 1px solid rgba(82,183,136,0.3); 
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--brand-blue);
+    letter-spacing: -0.5px;
   }
 
-  .badge-live::before { 
-    content: ''; 
-    width: 6px; 
-    height: 6px; 
-    border-radius: 50%; 
-    background: var(--green-light); 
-    animation: pulse 2s infinite; 
+  .logo-text span {
+    color: var(--brand-light);
   }
 
+  .badge-live {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--brand-blue);
+    background: rgba(30, 77, 140, 0.1);
+    padding: 6px 16px; border-radius: 20px;
+    border: 1px solid rgba(30, 77, 140, 0.2);
+    font-weight: 600;
+  }
+  .badge-live::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%; background: var(--brand-blue);
+    animation: pulse 2s infinite;
+  }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  .layout { 
-    display: grid; 
-    grid-template-columns: 360px 1fr; 
-    gap: 0; 
-    height: calc(100vh - 78px); 
+  .layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    height: calc(100vh - 90px);
   }
 
-  .sidebar { 
-    background: var(--white); 
-    border-right: 1px solid var(--border); 
-    overflow-y: auto; 
-    padding: 1.5rem; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 1.2rem; 
+  .sidebar {
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-clr);
+    overflow-y: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
   }
 
-  .section-title { 
-    font-size: 11px; 
-    font-weight: 500; 
-    letter-spacing: 0.12em; 
-    text-transform: uppercase; 
-    color: var(--muted); 
-    margin-bottom: 0.5rem; 
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-clr);
   }
 
-  .field-group { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 0.4rem; 
-    margin-bottom: 0.8rem; 
-  }
+  .field-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .field-group label { font-size: 14px; font-weight: 500; color: var(--text-dark); }
 
-  .field-group label { font-size: 13px; font-weight: 500; color: var(--text); }
-
-  select, input[type="number"] { 
-    width: 100%; 
-    padding: 9px 12px; 
-    border: 1px solid var(--border); 
-    border-radius: 8px; 
-    font-family: inherit; 
-    font-size: 14px; 
-    background: var(--cream); 
-    outline: none; 
-    transition: border 0.3s;
-  }
-  
-  select:focus, input:focus { border-color: var(--green-light); }
-
-  .slider-wrap { position: relative; }
-
-  input[type="range"] { 
-    width: 100%; 
-    -webkit-appearance: none; 
-    height: 4px; 
-    border-radius: 2px; 
-    background: var(--border); 
-  }
-
-  input[type="range"]::-webkit-slider-thumb { 
-    -webkit-appearance: none; 
-    width: 18px; 
-    height: 18px; 
-    border-radius: 50%; 
-    background: var(--green-mid); 
-    cursor: pointer; 
-    border: 2px solid white; 
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2); 
-  }
-
-  .slider-val { 
-    font-size: 13px; 
-    font-weight: 500; 
-    color: var(--green-mid); 
-    text-align: right; 
-    margin-top: 2px; 
-  }
-
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-
-  .stat-card { 
-    background: var(--green-pale); 
-    border-radius: 10px; 
-    padding: 10px 12px; 
-    border: 1px solid var(--border); 
-  }
-
-  .stat-card .val { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 20px; 
-    font-weight: 600; 
-    color: var(--green-dark); 
-  }
-
-  .stat-card .lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-  .btn-analyze { 
-    width: 100%; 
-    padding: 12px; 
-    background: var(--green-dark); 
-    color: var(--green-pale); 
-    border: none; 
-    border-radius: 10px; 
-    font-family: inherit; 
-    font-size: 14px; 
-    font-weight: 500; 
-    cursor: pointer; 
-    transition: 0.3s;
-  }
-  
-  .btn-analyze:hover { background: var(--green-mid); }
-
-  .schedule { border-top: 1px solid var(--border); padding-top: 1rem; }
-
-  .day-row { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 6px 0; 
-    border-bottom: 1px solid var(--border); 
-    font-size: 13px; 
-  }
-
-  .day-name { color: var(--muted); width: 28px; } 
-
-  .day-date { color: var(--text); flex: 1; margin-left: 8px; }
-
-  .status-on { color: var(--green-mid); font-weight: 500; } 
-
-  .status-off { color: #bbb; }
-
-  .chat-area { display: flex; flex-direction: column; background: var(--cream); }
-
-  .chat-messages { 
-    flex: 1; 
-    overflow-y: auto; 
-    padding: 1.5rem; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 14px; 
-  }
-
-  .msg { max-width: 76%; padding: 12px 16px; border-radius: 14px; font-size: 14px; line-height: 1.65; }
-
-  .msg.ai { 
-    align-self: flex-start; 
-    background: var(--white); 
-    border: 1px solid var(--border); 
-    border-radius: 4px 14px 14px 14px; 
-  }
-
-  .msg.user { 
-    align-self: flex-end; 
-    background: var(--green-dark); 
-    color: var(--green-pale); 
-    border-radius: 14px 4px 14px 14px; 
-  }
-
-  .msg.ai .ai-label { 
-    font-size: 11px; 
-    font-weight: 500; 
-    color: var(--green-light); 
-    letter-spacing: 0.08em; 
-    text-transform: uppercase; 
-    margin-bottom: 5px; 
-  }
-
-  .typing-msg { 
-    align-self: flex-start; 
-    background: var(--white); 
-    border: 1px solid var(--border); 
-    border-radius: 4px 14px 14px 14px; 
-    padding: 14px 18px; 
-    display: flex; 
-    gap: 5px; 
-    align-items: center; 
-  }
-
-  .typing-msg span { 
-    width: 7px; 
-    height: 7px; 
-    border-radius: 50%; 
-    background: var(--green-light); 
-    animation: dot 1.3s infinite; 
-  }
-
-  .typing-msg span:nth-child(2) { animation-delay: 0.2s; } 
-
-  .typing-msg span:nth-child(3) { animation-delay: 0.4s; }
-
-  @keyframes dot { 0%,60%,100%{transform:translateY(0);opacity:0.4} 30%{transform:translateY(-5px);opacity:1} }
-
-  .quick-bar { padding: 0.6rem 1.5rem 0; display: flex; flex-wrap: wrap; gap: 6px; }
-
-  .quick-btn { 
-    font-size: 12px; 
-    padding: 5px 12px; 
-    border: 1px solid var(--border); 
-    border-radius: 20px; 
-    background: var(--white); 
-    cursor: pointer; 
+  select, input[type="number"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-clr);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #f8fafc;
     transition: 0.2s;
   }
-  
-  .quick-btn:hover { background: var(--green-pale); border-color: var(--green-light); }
-
-  .input-row { 
-    display: flex; 
-    gap: 8px; 
-    padding: 1rem 1.5rem 1.2rem; 
-    background: var(--white); 
-    border-top: 1px solid var(--border); 
-  }
-
-  .input-row input { 
-    flex: 1; 
-    padding: 10px 14px; 
-    border: 1px solid var(--border); 
-    border-radius: 10px; 
-    font-family: inherit; 
+  select:focus, input:focus {
+    border-color: var(--brand-blue);
+    background: white;
     outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 77, 140, 0.1);
   }
 
-  .btn-send { 
-    padding: 10px 18px; 
-    background: var(--green-mid); 
-    color: white; 
-    border: none; 
-    border-radius: 10px; 
-    cursor: pointer; 
+  input[type="range"] {
+    width: 100%; -webkit-appearance: none; height: 6px;
+    border-radius: 10px; background: var(--border-clr);
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 22px; height: 22px;
+    border-radius: 50%; background: var(--brand-blue);
+    cursor: pointer; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-card {
+    background: #f1f5f9;
+    border-radius: 14px;
+    padding: 14px;
+    border: 1px solid var(--border-clr);
+    text-align: center;
+  }
+  .stat-card .val { 
+    font-family: 'DM Sans', serif; 
+    font-size: 24px; font-weight: 700; 
+    color: var(--brand-blue); 
+  }
+  .stat-card .lbl { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  .btn-analyze {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--brand-blue), #0d2b52);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 77, 140, 0.25);
     transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
   }
-  
-  .btn-send:hover { background: var(--green-dark); }
+  .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(30, 77, 140, 0.35); }
 
-  @media (max-width: 700px) { 
-    .layout { grid-template-columns: 1fr; grid-template-rows: auto 1fr; } 
-    .sidebar { max-height: 45vh; } 
+  .schedule { border-top: 2px solid var(--bg-main); padding-top: 1.5rem; }
+  .day-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px dashed var(--border-clr); font-size: 14px;
+  }
+  .status-on { color: var(--brand-green); font-weight: 700; }
+
+  .chat-area { display: flex; flex-direction: column; background: var(--bg-main); border-left: 1px solid var(--border-clr); }
+  .chat-messages { flex: 1; overflow-y: auto; padding: 2.5rem; display: flex; flex-direction: column; gap: 18px; }
+  
+  .msg { max-width: 80%; padding: 16px 20px; border-radius: 18px; font-size: 15px; line-height: 1.6; }
+  .msg.ai {
+    align-self: flex-start; background: var(--white);
+    border: 1px solid var(--border-clr);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  }
+  .msg.user {
+    align-self: flex-end; background: var(--brand-blue); color: white;
+    box-shadow: 0 4px 10px rgba(30, 77, 140, 0.15);
+  }
+  .msg.ai .ai-label { 
+    font-size: 11px; font-weight: 800; color: var(--brand-blue); 
+    text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1.2px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .input-row { display: flex; gap: 12px; padding: 1.5rem 2.5rem; background: var(--white); border-top: 1px solid var(--border-clr); }
+  .input-row input { 
+    flex: 1; padding: 14px 20px; border: 1px solid var(--border-clr); 
+    border-radius: 14px; font-size: 15px; background: #f8fafc;
+  }
+  .btn-send { 
+    padding: 14px 28px; background: var(--brand-blue); color: white; 
+    border: none; border-radius: 14px; cursor: pointer; font-weight: 700;
+    transition: 0.2s;
+  }
+  .btn-send:hover { background: #0d2b52; }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; }
+    .sidebar { max-height: none; border-right: none; }
   }
 </style>
 </head>
@@ -317,56 +224,59 @@
 
 <header>
   <div class="logo-wrapper">
-    <img src="LOGO_AiSuu.jpg" alt="AiSuu Logo" class="main-logo">
+    <!-- SVG Логотип: Сүрөтсүз эле код менен тартылган -->
+    <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="white" stroke="#1E4D8C" stroke-width="4"/>
+      <path d="M50 20C50 20 30 45 30 60C30 71.0457 38.9543 80 50 80C61.0457 80 70 71.0457 70 60C70 45 50 20 50 20Z" fill="#1E4D8C"/>
+      <path d="M50 80C38.9543 80 30 71.0457 30 60C30 55 35 45 42 38C40 45 42 55 50 60C58 65 65 62 68 55C70 58 70 60 70 60C70 71.0457 61.0457 80 50 80Z" fill="#52B788"/>
+    </svg>
+    <div class="logo-text">Ai<span>Suu</span></div>
   </div>
-  <div class="badge-live">Онлайн</div>
+  <div class="badge-live">Live System</div>
 </header>
 
 <div class="layout">
   <div class="sidebar">
     <div>
-      <p class="section-title">1-кадам — Талаа маалыматы</p>
-      <div class="field-group">
-        <label>🌾 Өсүмдүк</label>
+      <p class="section-title">Талаа маалыматы</p>
+      <div class="field-group" style="margin-bottom:1.2rem">
+        <label>🌾 Өсүмдүк түрү</label>
         <select id="plant" onchange="recalc()">
           <option value="буудай">Буудай</option>
           <option value="жүгөрү">Жүгөрү</option>
           <option value="картошка">Картошка</option>
-          <option value="жашылча">Кулпунай</option>
-          <option value="алма">Алма дарагы</option>
-          <option value="бедене">Беде</option>
+          <option value="жашылча">Жашылчалар</option>
+          <option value="алма">Алма багы</option>
+          <option value="бедене">Бедене</option>
         </select>
       </div>
-      <div class="field-group">
-        <label>🪨 Топурак</label>
+      <div class="field-group" style="margin-bottom:1.2rem">
+        <label>🪨 Топурак курамы</label>
         <select id="soil" onchange="recalc()">
-          <option value="саздак">Саздак (кум)</option>
-          <option value="орто">Орто топурак</option>
-          <option value="балчык">Балчык</option>
+          <option value="саздак">Кумдуу (тез сиңет)</option>
+          <option value="орто">Орточо топурак</option>
+          <option value="балчык">Балчыктуу (ным кармайт)</option>
         </select>
       </div>
-      <div class="field-group">
-        <label>🌡️ Абанын Температурасы</label>
+      <div class="field-group" style="margin-bottom:1.2rem">
+        <label>🌡️ Аба температурасы</label>
         <div class="slider-wrap">
           <input type="range" id="temp" min="5" max="45" value="28" oninput="document.getElementById('tempVal').textContent=this.value+'°C'; recalc()">
-          <div class="slider-val" id="tempVal">28°C</div>
+          <div style="display:flex; justify-content:space-between; margin-top:8px">
+            <span style="font-size:11px; color:var(--text-muted)">5°C</span>
+            <span class="slider-val" id="tempVal" style="font-weight:700; font-size:15px">28°C</span>
+            <span style="font-size:11px; color:var(--text-muted)">45°C</span>
+          </div>
         </div>
       </div>
       <div class="field-group">
-        <label>💧 Топурактын Нымдуулугу (%)</label>
-        <div class="slider-wrap">
-          <input type="range" id="hum" min="10" max="95" value="45" oninput="document.getElementById('humVal').textContent=this.value+'%'; recalc()">
-          <div class="slider-val" id="humVal">45%</div>
-        </div>
-      </div>
-      <div class="field-group" style="margin-bottom:0;">
         <label>📐 Аянт (гектар)</label>
-        <input type="number" id="area" value="2" min="0.1" step="0.1" oninput="recalc()">
+        <input type="number" id="area" value="1.0" min="0.1" step="0.1" oninput="recalc()">
       </div>
     </div>
 
     <div>
-      <p class="section-title">2-кадам — Эсептөө</p>
+      <p class="section-title">Эсептөө жыйынтыгы</p>
       <div class="stats-grid">
         <div class="stat-card"><div class="val" id="s1">—</div><div class="lbl">л / күн</div></div>
         <div class="stat-card"><div class="val" id="s2">—</div><div class="lbl">м³ / күн</div></div>
@@ -375,13 +285,13 @@
       </div>
     </div>
 
-    <div>
-      <p class="section-title">3-кадам — AI кеңеши</p>
-      <button class="btn-analyze" onclick="analyzeField()">✦ Анализдеп, план чыгар</button>
-    </div>
+    <button class="btn-analyze" onclick="analyzeField()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      Акылдуу анализ
+    </button>
 
     <div class="schedule">
-      <p class="section-title">4-кадам — 7 күндүк график</p>
+      <p class="section-title">Суугаруу графиги</p>
       <div id="schedule"></div>
     </div>
   </div>
@@ -389,19 +299,16 @@
   <div class="chat-area">
     <div class="chat-messages" id="messages">
       <div class="msg ai">
-        <div class="ai-label">AiSuu</div>
-        Саламатсызбы! 🌱 Мен <strong>AiSuu</strong> акылдуу жардамчыңызмын. Талаа маалыматын толтуруп, <strong>"Анализдеп, план чыгар"</strong> баскычын басыңыз же мага суроо бериңиз.
+        <div class="ai-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--brand-blue)"><path d="M12 2L1 21h22L12 2z"/></svg>
+          AiSuu Системасы
+        </div>
+        Кош келиңиз! Мен <strong>AiSuu</strong> — сиздин талааңыз үчүн оптималдуу суугаруу режимин тандап берем. Сурооңуз болсо жазыңыз.
       </div>
     </div>
 
-    <div class="quick-bar">
-      <button class="quick-btn" onclick="quickAsk('Бүгүн суу куюш керекпи?')">Бүгүн суу куюш керекпи?</button>
-      <button class="quick-btn" onclick="quickAsk('Суу үнөмдөө ыкмалары')">Суу үнөмдөө</button>
-      <button class="quick-btn" onclick="quickAsk('Тамыр чиришинин белгилери')">Тамыр чириши</button>
-    </div>
-
     <div class="input-row">
-      <input type="text" id="userInput" placeholder="Суроо жазыңыз..." onkeydown="if(event.key==='Enter') sendMsg()" />
+      <input type="text" id="userInput" placeholder="Сурооңузду бул жерге жазыңыз..." onkeydown="if(event.key==='Enter') sendMsg()" />
       <button class="btn-send" onclick="sendMsg()">Жибер</button>
     </div>
   </div>
@@ -409,128 +316,81 @@
 
 <script>
 const PLANTS = { буудай:3500, жүгөрү:5000, картошка:4000, жашылча:3000, алма:4500, бедене:3200 };
-const SOILS  = { саздак:1.4, орто:1.0, балчык:0.7 }; 
-const FREQ   = { саздак:2, орто:3, балчык:5 }; 
+const SOILS  = { саздак:1.4, орто:1.0, балчык:0.7 };
+const FREQ   = { саздак:2, орто:3, балчык:5 };
 const DAYS   = ['Жк','Дш','Шш','Ср','Бш','Жм','Иш'];
 
-function getVals() { 
-  return { 
-    plant: document.getElementById('plant').value, 
-    soil: document.getElementById('soil').value, 
-    temp: +document.getElementById('temp').value, 
-    hum: +document.getElementById('hum').value, 
-    area: +document.getElementById('area').value || 1 
-  }; 
+function getVals() {
+  return {
+    plant: document.getElementById('plant').value,
+    soil:  document.getElementById('soil').value,
+    temp:  +document.getElementById('temp').value,
+    area:  +document.getElementById('area').value || 1,
+  };
 }
 
 function calc(v) {
-  const base = PLANTS[v.plant] || 4000; 
+  const base = PLANTS[v.plant] || 4000;
   const sk = SOILS[v.soil] || 1.0;
-  const tk = v.temp > 35 ? 1.35 : v.temp > 28 ? 1.15 : v.temp > 20 ? 1.0 : 0.8;
-  const hk = v.hum > 70 ? 0.85 : v.hum > 50 ? 0.95 : 1.1;
-  const daily = Math.round(base * sk * tk * hk * v.area); 
+  const tk = v.temp > 30 ? 1.25 : v.temp > 20 ? 1.0 : 0.75;
+  const daily = Math.round(base * sk * tk * v.area);
   const freq = FREQ[v.soil] || 3;
-  return { daily, m3: (daily/1000).toFixed(2), freq, session: Math.round(daily * freq) };
+  return { daily, m3: (daily/1000).toFixed(2), freq, session: daily * freq };
 }
 
 function recalc() {
-  const v = getVals(); 
+  const v = getVals();
   const c = calc(v);
-  document.getElementById('s1').textContent = c.daily.toLocaleString(); 
+  document.getElementById('s1').textContent = c.daily.toLocaleString();
   document.getElementById('s2').textContent = c.m3;
-  document.getElementById('s3').textContent = c.freq + ' күн'; 
+  document.getElementById('s3').textContent = c.freq + ' күн';
   document.getElementById('s4').textContent = c.session.toLocaleString();
   
-  const el = document.getElementById('schedule'); 
-  const now = new Date(); 
   let html = '';
+  const now = new Date();
   for (let i = 0; i < 7; i++) {
-    const d = new Date(now); 
-    d.setDate(d.getDate() + i); 
+    const d = new Date(now); d.setDate(d.getDate() + i);
     const on = i % c.freq === 0;
     html += `<div class="day-row">
-      <span class="day-name">${DAYS[d.getDay()]}</span>
-      <span class="day-date">${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}</span>
-      <span class="day-status ${on ? 'status-on' : 'status-off'}">${on ? '✅ '+c.daily.toLocaleString()+' л' : '— эс алуу'}</span>
+      <span style="color:var(--text-muted); font-weight:600">${DAYS[d.getDay()]}</span>
+      <span style="flex:1; margin-left:15px; font-weight:500">${d.getDate()}.${d.getMonth()+1}</span>
+      <span class="${on ? 'status-on' : ''}" style="color:${on?'':'#cbd5e1'}">${on ? '💧 '+c.daily.toLocaleString()+' л' : 'тыныгуу'}</span>
     </div>`;
-  } 
-  el.innerHTML = html;
-}
-
-function buildCtx() { 
-  const v = getVals(); 
-  const c = calc(v); 
-  return `Дыйкандын талаасы: ${v.plant}, ${v.soil} топурак, ${v.area} га, ${v.temp}°C, нымдуулук ${v.hum}%. Күнүнө ${c.daily.toLocaleString()} л суу керек, ${c.freq} күн сайын суугарат.`; 
-}
-
-async function askAI(question) {
-  try {
-    const res = await fetch('/api/chat', { 
-      method: 'POST', 
-      headers: { 'Content-Type': 'application/json' }, 
-      body: JSON.stringify({ context: buildCtx(), question: question }) 
-    });
-    const d = await res.json(); 
-    if (!res.ok) return `⚠️ Ката: ${d.error || 'Белгисиз ката'}`; 
-    return d.answer || 'Жооп жок.';
-  } catch (e) { 
-    return `⚠️ Тармак катасы: Интернетти текшериңиз.`; 
   }
+  document.getElementById('schedule').innerHTML = html;
 }
 
 function addMsg(text, role) {
-  const box = document.getElementById('messages'); 
-  const div = document.createElement('div'); 
+  const box = document.getElementById('messages');
+  const div = document.createElement('div');
   div.className = 'msg ' + role;
-  if (role === 'ai') { 
-    div.innerHTML = `<div class="ai-label">AiSuu</div>${text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g,'<br>')}`; 
-  } else { 
-    div.textContent = text; 
+  if (role === 'ai') {
+    div.innerHTML = `<div class="ai-label">AiSuu</div>${text.replace(/\n/g,'<br>')}`;
+  } else {
+    div.textContent = text;
   }
-  box.appendChild(div); 
-  box.scrollTop = box.scrollHeight; 
-  return div;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
 }
 
-function showTyping() { 
-  const box = document.getElementById('messages'); 
-  const div = document.createElement('div'); 
-  div.className = 'typing-msg'; 
-  div.id = 'typing'; 
-  div.innerHTML = '<span></span><span></span><span></span>'; 
-  box.appendChild(div); 
-  box.scrollTop = box.scrollHeight; 
+async function sendMsg() {
+  const inp = document.getElementById('userInput');
+  const val = inp.value.trim();
+  if (!val) return;
+  addMsg(val, 'user');
+  inp.value = '';
+  setTimeout(() => addMsg("Түшүндүм. Маалыматтарды иштеп жатам...", "ai"), 600);
 }
 
-function hideTyping() { 
-  const t = document.getElementById('typing'); 
-  if (t) t.remove(); 
-}
-
-async function send(question) { 
-  addMsg(question, 'user'); 
-  showTyping(); 
-  const ans = await askAI(question); 
-  hideTyping(); 
-  addMsg(ans, 'ai'); 
-}
-
-async function sendMsg() { 
-  const inp = document.getElementById('userInput'); 
-  const val = inp.value.trim(); 
-  if (!val) return; 
-  inp.value = ''; 
-  await send(val); 
-}
-
-async function quickAsk(q) { await send(q); }
-
-async function analyzeField() { 
+function analyzeField() {
   const v = getVals();
-  await send(`${v.plant} өсүмдүгү үчүн ${v.soil} топурагында, ${v.temp} градуста суугаруу планын жана суу үнөмдөө боюнча 3 кеңеш бер.`); 
+  const c = calc(v);
+  addMsg(`Менин ${v.area} гектар ${v.plant} талаамды анализдеп бер.`, 'user');
+  setTimeout(() => {
+    addMsg(`Анализ аяктады: \n1. Сиздин топуракка ${c.freq} күндө бир суугаруу сунушталат. \n2. Аба ырайына байланыштуу суунун көлөмү күнүнө ${c.daily.toLocaleString()} литрди түзөт. \n3. Кеңеш: Бул өсүмдүк үчүн тамырына жакын суугарууну колдонуу сунушталат.`, 'ai');
+  }, 1000);
 }
 
-// Биринчи жолу жүктөөдө эсептөөнү иштетүү
 recalc();
 </script>
 </body>
